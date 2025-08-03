@@ -1,20 +1,21 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
-import NotFoundView from "@/views/NotFoundView.vue";
+
 import LoginView from "@/views/LoginView.vue";
 
-import settingsRoute from "./settings.route";
-const router = createRouter({
+ import settingsRoute from "./settings.route";
+ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    ...settingsRoute,
+...settingsRoute,
     {
       path: "/",
       name: "home",
       component: HomeView,
       meta: {
         title: "Home ",
+        layout: "default",
       },
     },
     {
@@ -35,11 +36,6 @@ const router = createRouter({
         layout: "blank",
       },
     },
-    { path: "/:pathMatch(.*)*", component: NotFoundView,
-      meta:{
-        layout:'blank'
-      }
-     },
   ],
   linkActiveClass: "vue-active-link",
 });

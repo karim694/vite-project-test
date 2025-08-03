@@ -34,12 +34,24 @@
       >
     </div>
 
+     <component :is="currentTabLayout">
       <router-view />
+    </component>
   </div>
 </template>
 <script setup>
 import { RouterView, RouterLink } from "vue-router";
+import { computed,watch } from 'vue'
+import { useRoute } from 'vue-router'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import BlankLayout from '@/layouts/BlankLayout.vue'
 
-
-
+const route = useRoute()
+watch(route, (newRoute) => {
+  console.log('Current route:', newRoute)
+  console.log('Route meta:', newRoute.meta)
+}, { immediate: true })
+const currentTabLayout = computed(() => {
+  return route.meta.tabLayout === 'blank' ? BlankLayout : DefaultLayout
+})
 </script>

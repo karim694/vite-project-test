@@ -11,6 +11,7 @@ export default [
       component: SettingsView,
       meta: {
         title: "settings ",
+        layout: "default",
       },
       children: [
         {
@@ -19,6 +20,7 @@ export default [
           component: FirstSettingView,
           meta: {
             title: "First",
+            tabLayout: "default",
           },
         },
         {
@@ -27,6 +29,7 @@ export default [
           component: SecondSettingView,
           meta: {
             title: "second",
+            tabLayout: "default",
           },
         },
         {
@@ -35,7 +38,7 @@ export default [
           component: ThirdSettingView,
           meta: {
             title: "third",
-            layout: "blank",
+            tabLayout: "blank",
           },
         },
         {
@@ -44,7 +47,7 @@ export default [
           component: FourthSettingView,
           meta: {
             title: "fourth",
-            layout: "blank",
+            tabLayout: "blank",
           },
         },
 
